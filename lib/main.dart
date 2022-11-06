@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:social/moduels/on_boarding/onboarding_screen.dart';
+import 'package:social/shared/network/local/cache_helper.dart';
+import 'package:social/shared/network/remote/dio_helper.dart';
 
 import 'moduels/splash/splash_screen.dart';
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await CacheHelper.init();
+  DioHelper.init();
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
       statusBarColor: Colors.transparent
